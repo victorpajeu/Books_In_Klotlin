@@ -1,7 +1,9 @@
-package br.com.victorpajeu.books
+package br.com.victorpajeu.books.ui
+
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.victorpajeu.books.R
 
 class bookDetailActivity : AppCompatActivity() {
 

@@ -1,6 +1,7 @@
 package br.com.victorpajeu.books.ui.adapter
 
 import android.media.Image
+import android.media.browse.MediaBrowser
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,8 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_book.view.*
 
 class BookAdapter(
-   val list: List<Volume>
+   val list: List<Volume>,
+   private val itemCallback: (Volume) -> Unit
 ): RecyclerView.Adapter<BookAdapter.BookVH>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookVH {
@@ -33,6 +35,9 @@ class BookAdapter(
             txtTitle.text = volume.volumeInfo.title
             txtAuthor.text = volume.volumeInfo.authors?.joinToString () ?: "Nenhum"
             txtPages.text = volume.volumeInfo.pageCount?.toString()
+            itemView.setOnClickListener{
+                itemCallback(volume)
+            }
         }
     }
 
