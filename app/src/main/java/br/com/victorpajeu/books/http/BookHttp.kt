@@ -9,15 +9,15 @@ import java.util.concurrent.TimeUnit
 
 object BookHttp {
 
-    val API_KEY = "AIzaSyCdybClbXIhr2QQtE2wEAQ6CyHFjr7Qq30"
-    val BOOK_JSON_URL =
+    private const val API_KEY =
+        "AIzaSyCdybClbXIhr2QQtE2wEAQ6CyHFjr7Qq30"
+    private const val BOOK_JSON_URL =
         "https://www.googleapis.com/books/v1/volumes?q=%s&key=$API_KEY"
-
+    private val client = OkHttpClient.Builder()
+        .readTimeout( 5, TimeUnit.SECONDS)
+        .connectTimeout( 10, TimeUnit.SECONDS)
+        .build()
     fun searchBook(q : String): SearchResult?{
-        val client = OkHttpClient.Builder()
-            .readTimeout( 5, TimeUnit.SECONDS)
-            .connectTimeout( 10, TimeUnit.SECONDS)
-            .build()
         val request = Request.Builder()
             .url(String.format(BOOK_JSON_URL, q))
             .build()
