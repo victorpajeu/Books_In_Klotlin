@@ -8,5 +8,5 @@ data class VolumeInfo(
     val publisher: String,
     val publishedDate: String,
     val pageCount: Int?,
-    val imageLinks: image_links
+    val imageLinks: image_links?
 )
