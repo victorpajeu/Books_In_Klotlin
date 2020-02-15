@@ -12,8 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.bookDetailActivity"></activity>
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.bookDetailActivity"
+
+            android:parentActivityName=".ui.MainActivity"
+            android:label="@string/app_name"></activity>
+
+
+        <activity android:name=".ui.MainActivity" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
